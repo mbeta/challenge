@@ -11,8 +11,13 @@
     <groupId>ar.com.challenge</groupId>
     <artifactId>precios</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>challenge</name>
     <description>challenge</description>
+    <modules>
+        <module>domain</module>
+        <module>service</module>
+    </modules>
     <properties>
         <java.version>17</java.version>
     </properties>
