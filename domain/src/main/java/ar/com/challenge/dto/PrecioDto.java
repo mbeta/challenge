@@ -1,6 +1,5 @@
 package ar.com.challenge.dto;
 
-import ar.com.challenge.enums.EnumMoneda;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,13 +14,10 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class PrecioDto {
 
-    private Integer marca;
-    private LocalDateTime fechaInicio;
-    private LocalDateTime fechaFin;
-    private BigDecimal precio;
-    private Integer producto;
-    private Integer prioridad;
-    private EnumMoneda moneda;
 
+    private Integer producto;
+    private Integer marca;
+    private BigDecimal precio;
+    private LocalDateTime fechaInicio;
 
 }

@@ -29,11 +29,11 @@ public class Precio {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPrecio;
 
-    private Integer marca;
+    private Integer idMarca;
     private LocalDateTime fechaInicio;
     private LocalDateTime fechaFin;
     private BigDecimal precio;
-    private Integer producto;
+    private Integer idProducto;
     private Integer prioridad;
     private EnumMoneda moneda;
     @CreationTimestamp
