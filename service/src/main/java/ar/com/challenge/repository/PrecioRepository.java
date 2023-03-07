@@ -9,17 +9,17 @@ import java.util.List;
 
 public interface PrecioRepository extends PagingAndSortingRepository<Precio, Long> {
 
-    @Query("SELECT p FROM Precio p "
+    //Obtener Precios aplicar a producto segun fecha de aplicacion, ordenado por prioridad
+    @Query(value = "SELECT p FROM Precio p "
             + "WHERE p.fechaInicio <= :fechaAplicacion "
             + "AND p.fechaFin >= :fechaAplicacion "
             + "AND p.idProducto = :idProducto "
             + "AND p.idMarca = :idMarca "
-            + "ORDER BY p.prioridad DESC"
+            + "ORDER BY p.prioridad DESC "
     )
-    Precio findFirstBy(LocalDateTime fechaAplicacion,
+    List<Precio> findPreciosBy(LocalDateTime fechaAplicacion,
                                 Integer idProducto,
                                 Integer idMarca);
-
 
 }
 

@@ -21,7 +21,12 @@ public class PrecioService {
         this.precioRepository = precioRepository;
     }
 
-    public PrecioDto obtenerTarifa(LocalDateTime fechaAplicacion, Integer idProducto, Integer idMarca){
-        return precioMapper.toDto(precioRepository.findFirstBy(fechaAplicacion, idProducto, idMarca));
+    //Obtener precio de producto a aplicar de mayor prioridad
+    public PrecioDto obtenerTarifa(LocalDateTime fechaAplicacion, Integer idProducto, Integer idMarca) {
+        return precioMapper.toDto(
+                precioRepository.findPreciosBy(fechaAplicacion, idProducto, idMarca)
+                        .stream()
+                        .findFirst()
+                        .orElse(null));
     }
 }
