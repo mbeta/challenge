@@ -5,19 +5,20 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public interface PrecioRepository extends PagingAndSortingRepository<Precio, Long> {
 
     @Query("SELECT p FROM Precio p "
-            + "WHERE p.fechaInicio >= :fechaAplicacion "
-            + "AND p.fechaFin <= :fechaAplicacion "
+            + "WHERE p.fechaInicio <= :fechaAplicacion "
+            + "AND p.fechaFin >= :fechaAplicacion "
             + "AND p.idProducto = :idProducto "
             + "AND p.idMarca = :idMarca "
-            + "ORDER BY p.prioridad DESC LIMIT 1"
+            + "ORDER BY p.prioridad DESC"
     )
-    Precio obtenerPrecio(LocalDateTime fechaAplicacion,
-                         Integer idProducto,
-                         Integer idMarca);
+    Precio findFirstBy(LocalDateTime fechaAplicacion,
+                                Integer idProducto,
+                                Integer idMarca);
 
 
 }

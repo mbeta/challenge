@@ -2,6 +2,8 @@ package ar.com.challenge.model;
 
 import ar.com.challenge.enums.EnumMoneda;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,9 +34,11 @@ public class Precio {
     private Integer idMarca;
     private LocalDateTime fechaInicio;
     private LocalDateTime fechaFin;
-    private BigDecimal precio;
+    private BigDecimal precioFinal;
+    private Integer idTarifaPrecios;
     private Integer idProducto;
     private Integer prioridad;
+    @Enumerated(EnumType.STRING)
     private EnumMoneda moneda;
     @CreationTimestamp
     private LocalDate fechaHoraRegistracion;

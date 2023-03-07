@@ -15,9 +15,10 @@ import java.time.LocalDateTime;
 public class PrecioDto {
 
 
-    private Integer producto;
-    private Integer marca;
-    private BigDecimal precio;
+    private Integer idProducto;
+    private Integer idMarca;
+    private Integer idTarifaPrecios;
+    private BigDecimal precioFinal;
     private LocalDateTime fechaInicio;
 
 }
