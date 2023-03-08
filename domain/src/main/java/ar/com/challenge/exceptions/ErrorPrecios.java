@@ -9,7 +9,9 @@ public enum ErrorPrecios {
 
     PRODUCTO_NO_ENCONTRADO(ProductoNoEncontrado.class),
     MARCA_NO_ENCONTRADA(MarcaNoEncontrada.class),
-    ERROR_GENERICO(ExcepcionPrecios.class);
+    ERROR_GENERICO(ExcepcionPrecios.class),
+    PETICION_INCORRECTA(PeticionIncorrecta.class),
+    VALIDACION_INCORRECTA(ValidacionIncorrecta.class);
 
     private final Class<? extends ExcepcionPrecios> excepcion;
 

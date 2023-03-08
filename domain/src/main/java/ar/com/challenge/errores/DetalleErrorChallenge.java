@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class DetalleErrorPrecios {
+public class DetalleErrorChallenge {
     private String objetivo;
     private String mensaje;
 
-    public DetalleErrorPrecios(final Class clase, final String mensaje) {
+    public DetalleErrorChallenge(final Class clase, final String mensaje) {
         this.objetivo = clase.getEnclosingMethod().getName();
         this.mensaje = mensaje;
     }

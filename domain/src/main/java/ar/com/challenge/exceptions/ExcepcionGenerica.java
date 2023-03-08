@@ -1,10 +1,10 @@
 package ar.com.challenge.exceptions;
 
-import ar.com.challenge.errores.DetalleErrorPrecios;
+import ar.com.challenge.errores.DetalleErrorChallenge;
 
 import java.util.List;
 
 public interface ExcepcionGenerica {
     String getMensaje();
-    List<DetalleErrorPrecios> getDetalles();
+    List<DetalleErrorChallenge> getDetalles();
 }

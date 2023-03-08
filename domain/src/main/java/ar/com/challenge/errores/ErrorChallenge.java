@@ -11,8 +11,8 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Builder
-public class ErrorPrecios {
+public class ErrorChallenge {
     private String mensaje;
     private String codigoError;
-    private List<DetalleErrorPrecios> detalles;
+    private List<DetalleErrorChallenge> detalles;
 }
