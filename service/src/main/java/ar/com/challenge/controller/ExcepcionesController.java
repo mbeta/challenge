@@ -7,7 +7,6 @@ import ar.com.challenge.exceptions.ExcepcionPrecios;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -57,7 +56,8 @@ public class ExcepcionesController {
 
     @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
     @ExceptionHandler({MethodArgumentNotValidException.class})
-    private ResponseEntity<ErrorChallenge> handleMethodArgumentNotValidException(final MethodArgumentNotValidException e) {
+    private ResponseEntity<ErrorChallenge> handleMethodArgumentNotValidException(
+            final MethodArgumentNotValidException e) {
         log.error(e.getMessage());
         List<DetalleErrorChallenge> detalles = e.getBindingResult().getFieldErrors().stream()
                 .map(methodArgumentNotValid -> DetalleErrorChallenge.builder()
@@ -76,13 +76,14 @@ public class ExcepcionesController {
 
     @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
     @ExceptionHandler({MethodArgumentTypeMismatchException.class})
-    private ResponseEntity<ErrorChallenge> handleMethodArgumentNotValidException(final MethodArgumentTypeMismatchException e) {
+    private ResponseEntity<ErrorChallenge> handleMethodArgumentNotValidException(
+            final MethodArgumentTypeMismatchException e) {
         log.error(e.getMessage());
         List<DetalleErrorChallenge> detalles = new ArrayList<>();
         detalles.add(DetalleErrorChallenge
                 .builder()
                 .objetivo(e.getName())
-                .mensaje(String.format("Error en parametro %s, del valor: %s",e.getName(), e.getValue()))
+                .mensaje(String.format("Error en parametro %s, del valor: %s", e.getName(), e.getValue()))
                 .build());
 
         ErrorChallenge errorChallenge = ErrorChallenge.builder()
@@ -95,13 +96,15 @@ public class ExcepcionesController {
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler({MissingServletRequestParameterException.class})
-    private ResponseEntity<ErrorChallenge> handleMethodArgumentNotValidException(final MissingServletRequestParameterException e) {
+    private ResponseEntity<ErrorChallenge> handleMethodArgumentNotValidException(
+            final MissingServletRequestParameterException e) {
         log.error(e.getMessage());
         List<DetalleErrorChallenge> detalles = new ArrayList<>();
         detalles.add(DetalleErrorChallenge
                 .builder()
                 .objetivo(e.getParameterName())
-                .mensaje(String.format("Se espera parametro %s, del tipo: %s",e.getParameterName(), e.getParameterType()))
+                .mensaje(String.format("Se espera parametro %s, del tipo: %s", e.getParameterName(),
+                        e.getParameterType()))
                 .build());
 
         ErrorChallenge errorChallenge = ErrorChallenge.builder()

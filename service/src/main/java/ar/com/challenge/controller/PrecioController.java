@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @RestController
@@ -30,10 +29,8 @@ public class PrecioController {
     public PrecioDto obtenerTarifa(
             @RequestParam(name = "fechaAplicacion") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
             final LocalDateTime fechaAplicacion,
-            @RequestParam(name = "idProducto")
-            final Integer idProducto,
-            @RequestParam(name = "idMarca")
-            final Integer idMarca){
+            @RequestParam(name = "idProducto") final Integer idProducto,
+            @RequestParam(name = "idMarca") final Integer idMarca) {
 
         return precioService.obtenerTarifa(fechaAplicacion, idProducto, idMarca);
     }

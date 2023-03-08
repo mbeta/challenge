@@ -22,7 +22,9 @@ public class PrecioService {
     }
 
     //Obtener precio de producto a aplicar de mayor prioridad
-    public PrecioDto obtenerTarifa(LocalDateTime fechaAplicacion, Integer idProducto, Integer idMarca) {
+    public PrecioDto obtenerTarifa(final LocalDateTime fechaAplicacion,
+                                   final Integer idProducto,
+                                   final Integer idMarca) {
         return precioMapper.toDto(
                 precioRepository.findPreciosBy(fechaAplicacion, idProducto, idMarca)
                         .stream()
